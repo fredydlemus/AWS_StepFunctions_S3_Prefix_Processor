@@ -10,7 +10,7 @@ permissions:
 jobs:
     deploy:
         name: Build & Deploy SAM
-        runs-on: ubuntu-laatest
+        runs-on: ubuntu-latest
         env:
             AWS_REGION: us-east-1
         steps:
