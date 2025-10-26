@@ -28,7 +28,7 @@ jobs:
               uses: aws-actions/setup-sam@v2
 
             - name: Build SAM application
-              run: sam build
+              run: sam build --use-container
 
             - name: Package SAM application
               run: sam package
