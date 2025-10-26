@@ -1,0 +1,35 @@
+name: Deploy AWS SAM
+
+on:
+    workflow_dispatch:
+
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+    deploy:
+        name: Build & Deploy SAM
+        runs-on: ubuntu-laatest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+                role-session-name: GitHubActionsSession
+                aws-region: ${{ env.AWS_REGION }}
+
+            - name: Setup AWS SAM CLI
+              uses: aws-actions/setup-sam@v2
+
+            - name: Build SAM application
+              run: sam build
+
+            - name: Package SAM application
+              run: sam package
+
+            - name: Deploy
+              run: sam deploy

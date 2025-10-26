@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: This sample application demonstrates iterating over Amazon S3 objects under a specified prefix using S3ListObjectsV2 and processing them using AWS Step Functions Distributed Map.
+
+Globals:
+  Function:
+    Runtime: python3.13
+    Timeout: 300
+    Environment:
+      Variables:
+        LOG_LEVEL: INFO
+
+Resources:
+  DailySummaryGeneratorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: app.handler

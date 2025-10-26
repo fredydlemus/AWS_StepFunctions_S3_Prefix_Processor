@@ -1,0 +1,6 @@
+{
+    "analysis_result": [
+        {"hourOfDay": "10", "errorCount": 2, "warningCount": 3, "processedRecords": 100},
+        {"hourOfDay": "11", "errorCount": 1, "warningCount": 0, "processedRecords": 50}
+    ]
+}
