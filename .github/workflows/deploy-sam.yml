@@ -11,6 +11,8 @@ jobs:
     deploy:
         name: Build & Deploy SAM
         runs-on: ubuntu-laatest
+        env:
+            AWS_REGION: us-east-1
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v4
