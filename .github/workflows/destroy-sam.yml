@@ -28,4 +28,4 @@ jobs:
               uses: aws-actions/setup-sam@v2
 
             - name: Delete SAM (destroy stack)
-              run: sam delete
+              run: sam delete --no-prompts
